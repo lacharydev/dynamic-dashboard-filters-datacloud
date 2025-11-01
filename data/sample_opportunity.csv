@@ -1,1 +1,7 @@
+OpportunityId,OpportunityName,Stage,Amount,CloseDate,AccountId,OwnerId
+006A9001,BlueTech Renewal,Negotiation,250000,2025-12-15,001A1001,005A0001
+006A9002,Sunrise Expansion,Proposal,180000,2025-11-10,001A1002,005A0002
+006A9003,GreenEnergy Pilot,Qualification,90000,2025-11-25,001A1003,005A0003
+006A9004,HealthFirst Upgrade,Closed Won,300000,2025-10-30,001A1004,005A0004
+006A9005,BlueTech Add-on,Prospecting,60000,2026-01-05,001A1001,005A0001
 
