@@ -1,1 +1,126 @@
+{
+  "label": "Dynamic Dashboard Filter — Data Cloud Demo",
+  "state": {
+    "gridLayouts": [
+      {
+        "name": "Default Layout",
+        "rows": [
+          {
+            "columns": [
+              {
+                "width": 12,
+                "widgets": [
+                  {
+                    "name": "title",
+                    "type": "text",
+                    "parameters": {
+                      "text": "# 🚀 Dynamic Dashboard Filter\nEach user sees only their opportunities — powered by Data Cloud Direct Query."
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "columns": [
+              {
+                "width": 12,
+                "widgets": [
+                  {
+                    "name": "pipeline_chart",
+                    "type": "chart",
+                    "parameters": {
+                      "dataSourceLinks": [
+                        {
+                          "queryName": "DataCloud_Opportunities"
+                        }
+                      ],
+                      "chartType": "bar",
+                      "measure": "Amount",
+                      "grouping": "AccountName",
+                      "segment": "Stage"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "dataSources": [
+      {
+        "name": "Logged_In_User",
+        "type": "query",
+        "query": {
+          "sources": [
+            {
+              "type": "dataset",
+              "name": "sample_user"
+            }
+          ],
+          "fields": ["Id", "FirstName", "LastName", "Country"],
+          "filters": [
+            {
+              "field": "Id",
+              "operator": "equals",
+              "values": ["!{User.Id}"]
+            }
+          ],
+          "limit": 1
+        }
+      },
+      {
+        "name": "DataCloud_Opportunities",
+        "type": "query",
+        "query": {
+          "sources": [
+            {
+              "type": "dataset",
+              "name": "sample_opportunity"
+            },
+            {
+              "type": "dataset",
+              "name": "sample_account",
+              "join": {
+                "leftKey": "AccountId",
+                "rightKey": "AccountId"
+              }
+            }
+          ],
+          "fields": [
+            "OpportunityName",
+            "Stage",
+            "Amount",
+            "AccountName",
+            "OwnerId"
+          ],
+          "filters": [
+            {
+              "field": "OwnerId",
+              "operator": "equals",
+              "values": ["005A0001"]
+            }
+          ]
+        }
+      }
+    ],
+    "interactions": [
+      {
+        "type": "result",
+        "parameters": {
+          "source": "Logged_In_User",
+          "target": "DataCloud_Opportunities",
+          "action": "filter",
+          "field": "OwnerId",
+          "value": "cell(Logged_In_User.result, 0, 'Id').asString()"
+        }
+      }
+    ]
+  },
+  "createdBy": "Lakshmi Achary",
+  "createdDate": "2025-10-31",
+  "version": "1.0",
+  "description": "Demo dashboard for Data Cloud + CRM Analytics user-level filtering"
+}
 
