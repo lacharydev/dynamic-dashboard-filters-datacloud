@@ -1,1 +1,6 @@
+AccountId,AccountName,Industry,Region,OwnerId
+001A1001,BlueTech Solutions,Technology,North America,005A0001
+001A1002,Sunrise Retail,Consumer Goods,APAC,005A0002
+001A1003,GreenEnergy Corp,Energy,Latin America,005A0003
+001A1004,HealthFirst Medical,Healthcare,North America,005A0004
 
