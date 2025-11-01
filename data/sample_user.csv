@@ -1,1 +1,6 @@
+Id,FirstName,LastName,Email,Country,Role
+005A0001,Alex,Johnson,alex.johnson@example.com,USA,Sales Rep
+005A0002,Meera,Patel,meera.patel@example.com,India,Sales Rep
+005A0003,Carlos,Ramirez,carlos.ramirez@example.com,Mexico,Sales Manager
+005A0004,Emma,Chen,emma.chen@example.com,USA,Sales Manager
 
